@@ -46,7 +46,7 @@ const ThoughtSchema = new Schema(
     },
     username: {
       type: String,
-      rquired: true
+      required: true
     },
     reactions: [reactionSchema]
   },
