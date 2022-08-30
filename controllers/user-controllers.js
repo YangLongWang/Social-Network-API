@@ -4,9 +4,11 @@ const userController = {
   // get all users
   getAllUser(req, res) {
     User.find({})
+    // when GET all user, it should be show _id value of thoughts
     .populate({
       path: 'thoughts',
-      select: '-__v'
+      select: '-__v',
+      // select: '__id'
     })
     .select('-__v')
     .sort({ _id: -1 })
