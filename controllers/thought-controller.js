@@ -60,25 +60,25 @@ const thoughtController = {
       //     { new: true }
       //   );
       // })
-      .then(dbUserData => {
-        if (!dbUserData) {
-          console.log(dbUserData);
-          res.status(404).json({ message: 'No user found with this id!' });
+      .then(dbThoughtData => {
+        if (!dbThoughtData) {
+          console.log(dbThoughtData);
+          res.status(404).json({ message: 'No thought found with this id!' });
           return;
         }
-        res.json(dbUserData);
+        res.json(dbThoughtData);
       })
       .catch(err => res.json(err));
     },
     // delete thought by id
-    deleteUser({ params }, res) {
-      User.findOneAndDelete({ _id: params.id })
-        .then(dbUserData => {
-          if (!dbUserData) {
-            res.status(404).json({ message: 'No user found with this id!' });
+    deleteThought({ params }, res) {
+      Thought.findOneAndDelete({ _id: params.thoughtId })
+        .then(dbThoughtData => {
+          if (!dbThoughtData) {
+            res.status(404).json({ message: 'No thought found with this id!' });
             return;
           }
-          res.json(dbUserData);
+          res.json(dbThoughtData);
         })
         .catch(err => res.status(400).json(err));
     },
