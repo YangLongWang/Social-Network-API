@@ -7,7 +7,7 @@ const userController = {
     // when GET all user, it should be show _id value of thoughts
     .populate({
       path: 'thoughts',
-      select: '-__v',
+      select: ['-__v', '-thoughtText', '-username', '-createdAt']
       // select: '__id'
     })
     .select('-__v')

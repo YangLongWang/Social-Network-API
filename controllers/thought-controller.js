@@ -14,7 +14,7 @@ const thoughtController = {
   },
   // get one thought by id
   getThoughtById({ params }, res) {
-    Thought.findOne({ _id: params.id })
+    Thought.findOne({ _id: params.thoughtId })
       .select('-__v')
       .then(dbThoughtData => {
         if (!dbThoughtData) {
@@ -51,14 +51,15 @@ const thoughtController = {
   },
     // update thought by id
     updateThought({ params, body }, res) {
-      Thought.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
-      .then(({ _id }) => {
-        return User.findOneAndUpdate(
-          { _id: params.userId },
-          { $push: { thoughts: _id } },
-          { new: true }
-        );
-      })
+      Thought.findOneAndUpdate({ _id: params.thoughtId }, body, { new: true, runValidators: true })
+      // .then(({ _id }) => {
+      //   console.log({_id})
+      //   return User.findOneAndUpdate(
+      //     { _id: body.userId },
+      //     { $push: { thoughts: _id } },
+      //     { new: true }
+      //   );
+      // })
       .then(dbUserData => {
         if (!dbUserData) {
           console.log(dbUserData);
