@@ -23,9 +23,9 @@ router
 // populated thought and friend data
 
 // set up POST and DELETE at /api/users/:userId/friends/:friendId
-// router
-//   .route('/:userId/friends/:friendId')
-//   .post(addFriend)
-  // .delete();
+router
+  .route('/:userId/friends/:friendId')
+  .post(addFriend)
+  .delete();
 
 module.exports = router;
