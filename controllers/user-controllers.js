@@ -96,8 +96,8 @@ const userController = {
   // delete friend by id
   deleteFriend({ params }, res) {
     User.findOneAndUpdate(
-      { _id: params.friendId },
-      { $pull: { friends: { friendId: params.friendId } } },
+      { _id: params.userId },
+      { $pull: { friends: params.friendId } },
       { new: true }
     )
       .then(dbPizzaData => res.json(dbPizzaData))
@@ -105,7 +105,6 @@ const userController = {
   }
 };
 
-// GET a single user by its _id and populated thought and friend data
 // BONUS: Remove a user's associated thoughts when deleted.
 
 module.exports = userController;
