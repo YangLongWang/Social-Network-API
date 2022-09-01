@@ -99,7 +99,15 @@ const thoughtController = {
       .catch(err => res.json(err));
   },
   // delete reaction by id
-  
+  deleteReaction({ params }, res) {
+    Thought.findOneAndUpdate(
+      { _id: params.thoughtId },
+      { $pull: { reactions: { reactionId: params.reactionId } } },
+      { new: true }
+    )
+      .then(dbPizzaData => res.json(dbPizzaData))
+      .catch(err => res.json(err));
+  }
 }
 
 module.exports = thoughtController;
