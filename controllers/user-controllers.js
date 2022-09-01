@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 
 const userController = {
   // get all users
@@ -26,6 +26,10 @@ const userController = {
       select: '-__v'
     })
     .select('-__v')
+    .populate({
+      path: 'friends',
+      select: '-__v'
+    })
     .then(dbUserData => {
       if (!dbUserData) {
         res.status(404).json({ message: 'No user found with this id!' });
@@ -64,7 +68,12 @@ const userController = {
           res.status(404).json({ message: 'No user found with this id!' });
           return;
         }
-        res.json(dbUserData);
+        console.log(dbUserData);
+        // return Thought.find({ _id: params.userId })
+        //   .then(dbUserData => {
+        //     res.json(dbUserData);
+        //     console.log(dbUserData);
+        //   });
       })
       .catch(err => res.status(400).json(err));
   },
