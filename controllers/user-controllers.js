@@ -68,7 +68,7 @@ const userController = {
           res.status(404).json({ message: 'No user found with this id!' });
           return;
         }
-        console.log(dbUserData);
+        res.json(dbUserData);
         // return Thought.find({ _id: params.userId })
         //   .then(dbUserData => {
         //     res.json(dbUserData);

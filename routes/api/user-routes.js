@@ -21,7 +21,6 @@ router
   .get(getUserById)
   .put(updateUser)
   .delete(deleteUser);
-// populated thought and friend data
 
 // set up POST and DELETE at /api/users/:userId/friends/:friendId
 router
