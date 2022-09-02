@@ -70,7 +70,7 @@ const thoughtController = {
     })
     .catch(err => res.json(err));
   },
-  // delete thought by id
+  // delete thought by thoughtId
   deleteThought({ params }, res) {
     Thought.findOneAndDelete({ _id: params.thoughtId })
       .then(dbThoughtData => {
@@ -82,7 +82,7 @@ const thoughtController = {
       })
       .catch(err => res.status(400).json(err));
   },
-  // add reaction to thought by id
+  // add reaction to thought by thoughtId
   addReaction({ params, body }, res) {
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
@@ -98,7 +98,7 @@ const thoughtController = {
       })
       .catch(err => res.json(err));
   },
-  // delete reaction by id
+  // delete reaction by reactionId
   deleteReaction({ params }, res) {
     Thought.findOneAndUpdate(
       { _id: params.thoughtId },
