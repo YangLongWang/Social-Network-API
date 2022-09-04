@@ -8,7 +8,6 @@ const userController = {
     .populate({
       path: 'thoughts',
       select: ['-__v', '-thoughtText', '-username', '-createdAt']
-      // select: '__id'
     })
     .select('-__v')
     .sort({ _id: -1 })
@@ -100,7 +99,5 @@ const userController = {
       .catch(err => res.json(err));
   }
 };
-
-// BONUS: Remove a user's associated thoughts when deleted.
 
 module.exports = userController;

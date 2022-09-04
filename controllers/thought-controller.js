@@ -52,23 +52,15 @@ const thoughtController = {
   // update thought by id
   updateThought({ params, body }, res) {
     Thought.findOneAndUpdate({ _id: params.thoughtId }, body, { new: true, runValidators: true })
-    // .then(({ _id }) => {
-    //   console.log({_id})
-    //   return User.findOneAndUpdate(
-    //     { _id: body.userId },
-    //     { $push: { thoughts: _id } },
-    //     { new: true }
-    //   );
-    // })
-    .then(dbThoughtData => {
-      if (!dbThoughtData) {
-        console.log(dbThoughtData);
-        res.status(404).json({ message: 'No thought found with this id!' });
-        return;
-      }
-      res.json(dbThoughtData);
-    })
-    .catch(err => res.json(err));
+      .then(dbThoughtData => {
+        if (!dbThoughtData) {
+          console.log(dbThoughtData);
+          res.status(404).json({ message: 'No thought found with this id!' });
+          return;
+        }
+        res.json(dbThoughtData);
+      })
+      .catch(err => res.json(err));
   },
   // delete thought by thoughtId
   deleteThought({ params }, res) {

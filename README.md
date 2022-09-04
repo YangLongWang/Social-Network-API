@@ -25,7 +25,6 @@
 
 Using MongoDB, Express.js, and the Mongoose ODM to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list.
 
-
 ### Installation
 
 Because this is a back end application that runs from a machine and not a browser, it can't be deployed to GitHub pages. If anyone ever wants to look at the application, you have to clone it to your own local machine and run it from there.
@@ -33,7 +32,7 @@ Because this is a back end application that runs from a machine and not a browse
 
 ### Usage
 
-On the comment line type `npm install` install packages on the root of directory, then use `npm start` to conncet server.
+On the commend line in the  root of directory, type `npm install` install packages, then use `npm start` to conncet server. Using `Insomnia` to check CRUD operation of the User, Thought, Friend, and Reaction.
 
 ### The challenge
 
@@ -43,11 +42,9 @@ Users should be able to:
 
 ### Video
 
-- Video link(Categories): [https://drive.google.com/file/d/1SRKfPGSTyXIOD7u9TAOq6n4Q0OYZqvPr/view](https://drive.google.com/file/d/1SRKfPGSTyXIOD7u9TAOq6n4Q0OYZqvPr/view)
+- Video link(start): [https://drive.google.com/file/d/11zfM6UGq76rOIar2NGzjZj6yPBv-W0ID/view](https://drive.google.com/file/d/11zfM6UGq76rOIar2NGzjZj6yPBv-W0ID/view)
 
-- Video link(Products): [https://drive.google.com/file/d/1kBmeYQhkGBXDsX9WjW2MCpSEUM3yVGYT/view](https://drive.google.com/file/d/1kBmeYQhkGBXDsX9WjW2MCpSEUM3yVGYT/view)
-
-- Video link(Tags): [https://drive.google.com/file/d/1Z7tgF0pyTxKz9MfJYeyl4ab_i8UJunNr/view](https://drive.google.com/file/d/1Z7tgF0pyTxKz9MfJYeyl4ab_i8UJunNr/view)
+- Video link(CRUD): [https://drive.google.com/file/d/1-Vv52R1CFvGhJb0MjR2MisjvgFu_Q3j_/view](https://drive.google.com/file/d/1-Vv52R1CFvGhJb0MjR2MisjvgFu_Q3j_/view)
 
 ### Links
 
