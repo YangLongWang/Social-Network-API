@@ -60,21 +60,17 @@ const userController = {
       })
       .catch(err => res.status(400).json(err));
   },
-  // delete user by id
+  // delete user by id, associated its thoughts
   deleteUser({ params }, res) {
     User.findOneAndDelete({ _id: params.userId })
       .then(dbUserData => {
         if (!dbUserData) {
           res.status(404).json({ message: 'No user found with this id!' });
           return;
-        }
-        res.json(dbUserData);
-        // return Thought.find({ _id: params.userId })
-        //   .then(dbUserData => {
-        //     res.json(dbUserData);
-        //     console.log(dbUserData);
-        //   });
+        } 
+        return Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
       })
+      .then(() => res.json({ message: 'user and thoughts deleted!' }))
       .catch(err => res.status(400).json(err));
   },
   // add friend to user

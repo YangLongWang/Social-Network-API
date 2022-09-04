@@ -33,7 +33,7 @@ Because this is a back end application that runs from a machine and not a browse
 
 ### Usage
 
-Create a .env file in root directory, and enter your own DB_NAME, DB_USER, and DB_PW. After that running npm run seed in terminal, and the application will be invoked by using the following command: node server.js. Using Insomnia to check results.
+On the comment line type `npm install` install packages on the root of directory, then use `npm start` to conncet server.
 
 ### The challenge
 
@@ -62,6 +62,7 @@ Users should be able to:
 ### What I learned
 
 - use MongoDB and Mongoose to set models and controllers
+- delete user and its associated thoughts by using `$in`
 
 To see how I add code snippets, see below:
 
@@ -132,6 +133,19 @@ getUserById({ params }, res) {
     console.log(err);
     res.status(400).json(err);
   });
+}
+
+deleteUser({ params }, res) {
+  User.findOneAndDelete({ _id: params.userId })
+    .then(dbUserData => {
+      if (!dbUserData) {
+        res.status(404).json({ message: 'No user found with this id!' });
+        return;
+      } 
+      return Thought.deleteMany({ _id: { $in: dbUserData.thoughts } });
+    })
+    .then(() => res.json({ message: 'user and thoughts deleted!' }))
+    .catch(err => res.status(400).json(err));
 }
 ```
 
